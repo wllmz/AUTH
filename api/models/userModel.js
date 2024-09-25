@@ -1,23 +1,24 @@
-const mongoose = require('mongoose') 
+const mongoose = require('mongoose');
 
 const user = new mongoose.Schema({
-    username: {
-        type : 'string',
-        required : true,
-        unique : true
-    }, 
-    email: {
-        type : 'string',
-        required : true,
-        unique : true
-    }, 
-    passwords: {
-        type: 'string',
-        required: true
-    }
-});
+username: {
+    type : 'string',
+    required: true,
+    unique: true,
+    minlength: 5,
+    maxlength: 20
+}, 
+password : {
+    type : 'string',
+    required: true,
+    minlength: 8,
+    maxlength: 50
+}, 
+email : {
+    type : 'string',
+    required: true,
+    unique: true,
+}
+})
 
-module.exports = mongoose.model('toto', user);
-
-
-module.exports = mongoolse.model('toto', user)
+module.exports = mongoose.model('User', user)
